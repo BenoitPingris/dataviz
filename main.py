@@ -1,4 +1,6 @@
 import csv
+import matplotlib.pyplot as plt
+
 
 filename = 'data.csv'
 
@@ -9,7 +11,6 @@ def read_file():
         d = []
         # Car;MPG;Cylinders;Displacement;Horsepower;Weight;Acceleration;Model;Origin
         for row in reader:
-            print(row[0])
             d.append({
                 'car': row[0],
                 'mpg': row[1],
@@ -26,6 +27,10 @@ def read_file():
 
 def main():
     data = read_file()
+    plt.scatter([item['origin'] for item in data], [item['hp']
+                                                    for item in data])
+    plt.show()
 
+    
 if __name__ == "__main__":
     main()
