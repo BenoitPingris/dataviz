@@ -28,8 +28,10 @@ def read_file():
 
 def main():
     data = read_file()
-    plt.scatter([item['hp'] for item in data], [item['mpg']
+    plt.scatter([item['acc'] for item in data], [item['mpg']
                                                     for item in data])
+    plt.xlabel('Acceleration')
+    plt.ylabel('Consommation')
     plt.show()
 
     
