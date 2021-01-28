@@ -1,11 +1,12 @@
-import pandas
 import matplotlib.pyplot as plt
-from pandas.plotting import parallel_coordinates
-import pandas as pd
-from sklearn import preprocessing
 import numpy as np
+import pandas as pd
+from pandas.plotting import parallel_coordinates
+from sklearn import preprocessing
 
-data = pandas.read_csv('data.csv', sep=',', usecols=['MPG', 'Cylinders', 'Displacement','Horsepower', 'Weight', 'Acceleration', 'Origin'])
+cols = ['MPG', 'Cylinders', 'Displacement',
+        'Horsepower', 'Weight', 'Acceleration', 'Origin']
+data = pd.read_csv('data.csv', sep=',', usecols=cols)
 
 min_max_scaler = preprocessing.MinMaxScaler()
 
