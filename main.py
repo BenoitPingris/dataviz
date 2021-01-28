@@ -40,10 +40,17 @@ def scatter(data):
     plt.ylabel('Acceleration')
     plt.show()
 
+def bar(data):
+    plt.bar([item['hp'] for item in data], [item['acc'] for item in data])
+    plt.xlabel('Chevaux')
+    plt.ylabel('Acceleration')
+    plt.show()
+
 def main():
     data = read_file()
     # histogram(data)
-    scatter(data)
+    # scatter(data)
+    bar(data)
 
 if __name__ == "__main__":
     main()
