@@ -28,7 +28,7 @@ def read_file():
 
 def main():
     data = read_file()
-    plt.scatter([item['origin'] for item in data], [item['hp']
+    plt.scatter([item['hp'] for item in data], [item['mpg']
                                                     for item in data])
     plt.show()
 
