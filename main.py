@@ -14,26 +14,36 @@ def read_file():
             d.append({
                 'id': row[0],
                 'car': row[1],
-                'mpg': row[2],
+                'mpg': float(row[2]),
                 'cylinders': row[3],
-                'displacement': row[4],
-                'hp': row[5],
-                'weight': row[6],
-                'acc': row[7],
+                'displacement': float(row[4]),
+                'hp': float(row[5]),
+                'weight': float(row[6]),
+                'acc': float(row[7]),
                 'model': row[8],
                 'origin': row[9],
                 })
         return d
 
+def histogram(data):
+    plt.hist([item['hp'] for item in data], edgecolor='black')
+    plt.legend()
+    plt.xlabel('Chevaux')
+    plt.ylabel('Quantite')
+    plt.title('Nombre de voiture/chevaux')
+    plt.show()
+
+def scatter(data):
+    plt.scatter([item['hp'] for item in data], [item['acc']
+                                                    for item in data])
+    plt.xlabel('Chevaux')
+    plt.ylabel('Acceleration')
+    plt.show()
 
 def main():
     data = read_file()
-    plt.scatter([item['acc'] for item in data], [item['mpg']
-                                                    for item in data])
-    plt.xlabel('Acceleration')
-    plt.ylabel('Consommation')
-    plt.show()
+    # histogram(data)
+    scatter(data)
 
-    
 if __name__ == "__main__":
     main()
